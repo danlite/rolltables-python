@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script src="./paper-full.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel" src="./main.js"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        /* Scale canvas with resize attribute to full size */
+        canvas[resize] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<canvas id="grid" resize></canvas>
+</body>
+</html>
