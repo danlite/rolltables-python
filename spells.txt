@@ -1,0 +1,461 @@
+0th:Acid Splash
+0th:Blade Ward
+0th:Booming Blade
+0th:Chill Touch
+0th:Control Flames
+0th:Create Bonfire
+0th:Dancing Lights
+0th:Druidcraft
+0th:Eldritch Blast
+0th:Fire Bolt
+0th:Friends
+0th:Frostbite
+0th:Green-Flame Blade
+0th:Guidance
+0th:Gust
+0th:Infestation
+0th:Light
+0th:Lightning Lure
+0th:Mage Hand
+0th:Magic Stone
+0th:Mending
+0th:Message
+0th:Minor Illusion
+0th:Mold Earth
+0th:Poison Spray
+0th:Prestidigitation
+0th:Primal Savagery
+0th:Produce Flame
+0th:Ray of Frost
+0th:Resistance
+0th:Sacred Flame
+0th:Shape Water
+0th:Shillelagh
+0th:Shocking Grasp
+0th:Spare the Dying
+0th:Sword Burst
+0th:Thaumaturgy
+0th:Thorn Whip
+0th:Thunderclap
+0th:Toll the Dead
+0th:True Strike
+0th:Vicious Mockery
+0th:Word of Radiance
+1st:Absorb Elements
+1st:Alarm
+1st:Animal Friendship
+1st:Armor of Agathys
+1st:Arms of Hadar
+1st:Bane
+1st:Beast Bond
+1st:Bless
+1st:Burning Hands
+1st:Catapult
+1st:Cause Fear
+1st:Ceremony
+1st:Chaos Bolt
+1st:Charm Person
+1st:Chromatic Orb
+1st:Color Spray
+1st:Command
+1st:Compelled Duel
+1st:Comprehend Languages
+1st:Create or Destroy Water
+1st:Cure Wounds
+1st:Detect Evil and Good
+1st:Detect Magic
+1st:Detect Poison and Disease
+1st:Disguise Self
+1st:Dissonant Whispers
+1st:Divine Favor
+1st:Earth Tremor
+1st:Ensnaring Strike
+1st:Entangle
+1st:Expeditious Retreat
+1st:Faerie Fire
+1st:False Life
+1st:Feather Fall
+1st:Find Familiar
+1st:Fog Cloud
+1st:Goodberry
+1st:Grease
+1st:Guiding Bolt
+1st:Hail of Thorns
+1st:Healing Word
+1st:Hellish Rebuke
+1st:Heroism
+1st:Hex
+1st:Hunter's Mark
+1st:Ice Knife
+1st:Identify
+1st:Illusory Script
+1st:Inflict Wounds
+1st:Jump
+1st:Longstrider
+1st:Mage Armor
+1st:Magic Missile
+1st:Protection from Evil and Good
+1st:Purify Food and Drink
+1st:Ray of Sickness
+1st:Sanctuary
+1st:Searing Smite
+1st:Shield
+1st:Shield of Faith
+1st:Silent Image
+1st:Sleep
+1st:Snare
+1st:Speak with Animals
+1st:Tasha's Hideous Laughter
+1st:Tenser's Floating Disk
+1st:Thunderous Smite
+1st:Thunderwave
+1st:Unseen Servant
+1st:Witch Bolt
+1st:Wrathful Smite
+1st:Zephyr Strike
+2nd:Aganazzar's Scorcher
+2nd:Aid
+2nd:Alter Self
+2nd:Animal Messenger
+2nd:Arcane Lock
+2nd:Augury
+2nd:Barkskin
+2nd:Beast Sense
+2nd:Blindness/Deafness
+2nd:Blur
+2nd:Branding Smite
+2nd:Calm Emotions
+2nd:Cloud of Daggers
+2nd:Continual Flame
+2nd:Cordon of Arrows
+2nd:Crown of Madness
+2nd:Darkness
+2nd:Darkvision
+2nd:Detect Thoughts
+2nd:Dragon's Breath
+2nd:Dust Devil
+2nd:Earthbind
+2nd:Enhance Ability
+2nd:Enlarge/Reduce
+2nd:Enthrall
+2nd:Find Steed
+2nd:Find Traps
+2nd:Flame Blade
+2nd:Flaming Sphere
+2nd:Gentle Repose
+2nd:Gust of Wind
+2nd:Healing Spirit
+2nd:Heat Metal
+2nd:Hold Person
+2nd:Invisibility
+2nd:Knock
+2nd:Lesser Restoration
+2nd:Levitate
+2nd:Locate Animals or Plants
+2nd:Locate Object
+2nd:Magic Mouth
+2nd:Magic Weapon
+2nd:Maximilian's Earthen Grasp
+2nd:Melf's Acid Arrow
+2nd:Mind Spike
+2nd:Mirror Image
+2nd:Misty Step
+2nd:Moonbeam
+2nd:Nystul's Magic Aura
+2nd:Pass without Trace
+2nd:Phantasmal Force
+2nd:Prayer of Healing
+2nd:Protection from Poison
+2nd:Pyrotechnics
+2nd:Ray of Enfeeblement
+2nd:Rope Trick
+2nd:Scorching Ray
+2nd:See Invisibility
+2nd:Shadow Blade
+2nd:Shatter
+2nd:Silence
+2nd:Skywrite
+2nd:Snilloc's Snowball Swarm
+2nd:Spider Climb
+2nd:Spike Growth
+2nd:Spiritual Weapon
+2nd:Suggestion
+2nd:Warding Bond
+2nd:Warding Wind
+2nd:Web
+2nd:Zone of Truth
+3rd:Animate Dead
+3rd:Aura of Vitality
+3rd:Beacon of Hope
+3rd:Bestow Curse
+3rd:Blinding Smite
+3rd:Blink
+3rd:Call Lightning
+3rd:Catnap
+3rd:Clairvoyance
+3rd:Conjure Animals
+3rd:Conjure Barrage
+3rd:Counterspell
+3rd:Create Food and Water
+3rd:Crusader's Mantle
+3rd:Daylight
+3rd:Dispel Magic
+3rd:Elemental Weapon
+3rd:Enemies Abound
+3rd:Erupting Earth
+3rd:Fear
+3rd:Feign Death
+3rd:Fireball
+3rd:Flame Arrows
+3rd:Fly
+3rd:Gaseous Form
+3rd:Glyph of Warding
+3rd:Haste
+3rd:Hunger of Hadar
+3rd:Hypnotic Pattern
+3rd:Leomund's Tiny Hut
+3rd:Life Transference
+3rd:Lightning Arrow
+3rd:Lightning Bolt
+3rd:Magic Circle
+3rd:Major Image
+3rd:Mass Healing Word
+3rd:Meld into Stone
+3rd:Melf's Minute Meteors
+3rd:Nondetection
+3rd:Phantom Steed
+3rd:Plant Growth
+3rd:Protection from Energy
+3rd:Remove Curse
+3rd:Revivify
+3rd:Sending
+3rd:Sleet Storm
+3rd:Slow
+3rd:Speak with Dead
+3rd:Speak with Plants
+3rd:Spirit Guardians
+3rd:Stinking Cloud
+3rd:Summon Lesser Demons
+3rd:Thunder Step
+3rd:Tidal Wave
+3rd:Tiny Servant
+3rd:Tongues
+3rd:Vampiric Touch
+3rd:Wall of Sand
+3rd:Wall of Water
+3rd:Water Breathing
+3rd:Water Walk
+3rd:Wind Wall
+4th:Arcane Eye
+4th:Aura of Life
+4th:Aura of Purity
+4th:Banishment
+4th:Blight
+4th:Charm Monster
+4th:Compulsion
+4th:Confusion
+4th:Conjure Minor Elementals
+4th:Conjure Woodland Beings
+4th:Control Water
+4th:Death Ward
+4th:Dimension Door
+4th:Divination
+4th:Dominate Beast
+4th:Elemental Bane
+4th:Evard's Black Tentacles
+4th:Fabricate
+4th:Find Greater Steed
+4th:Fire Shield
+4th:Freedom of Movement
+4th:Giant Insect
+4th:Grasping Vine
+4th:Greater Invisibility
+4th:Guardian of Faith
+4th:Guardian of Nature
+4th:Hallucinatory Terrain
+4th:Ice Storm
+4th:Leomund's Secret Chest
+4th:Locate Creature
+4th:Mordenkainen's Faithful Hound
+4th:Mordenkainen's Private Sanctum
+4th:Otiluke's Resilient Sphere
+4th:Phantasmal Killer
+4th:Polymorph
+4th:Shadow of Moil
+4th:Sickening Radiance
+4th:Staggering Smite
+4th:Stone Shape
+4th:Stoneskin
+4th:Storm Sphere
+4th:Summon Greater Demon
+4th:Vitriolic Sphere
+4th:Wall of Fire
+4th:Watery Sphere
+5th:Animate Objects
+5th:Antilife Shell
+5th:Awaken
+5th:Banishing Smite
+5th:Bigby's Hand
+5th:Circle of Power
+5th:Cloudkill
+5th:Commune
+5th:Commune with Nature
+5th:Cone of Cold
+5th:Conjure Elemental
+5th:Conjure Volley
+5th:Contact Other Plane
+5th:Contagion
+5th:Control Winds
+5th:Creation
+5th:Danse Macabre
+5th:Dawn
+5th:Destructive Wave
+5th:Dispel Evil and Good
+5th:Dominate Person
+5th:Dream
+5th:Enervation
+5th:Far Step
+5th:Flame Strike
+5th:Geas
+5th:Greater Restoration
+5th:Hallow
+5th:Hold Monster
+5th:Holy Weapon
+5th:Immolation
+5th:Infernal Calling
+5th:Insect Plague
+5th:Legend Lore
+5th:Maelstrom
+5th:Mass Cure Wounds
+5th:Mislead
+5th:Modify Memory
+5th:Negative Energy Flood
+5th:Passwall
+5th:Planar Binding
+5th:Raise Dead
+5th:Rary's Telepathic Bond
+5th:Reincarnate
+5th:Scrying
+5th:Seeming
+5th:Skill Empowerment
+5th:Steel Wind Strike
+5th:Swift Quiver
+5th:Synaptic Static
+5th:Telekinesis
+5th:Teleportation Circle
+5th:Transmute Rock
+5th:Tree Stride
+5th:Wall of Force
+5th:Wall of Light
+5th:Wall of Stone
+5th:Wrath of Nature
+6th:Arcane Gate
+6th:Blade Barrier
+6th:Bones of the Earth
+6th:Chain Lightning
+6th:Circle of Death
+6th:Conjure Fey
+6th:Contingency
+6th:Create Homunculus
+6th:Create Undead
+6th:Disintegrate
+6th:Drawmij's Instant Summons
+6th:Druid Grove
+6th:Eyebite
+6th:Find the Path
+6th:Flesh to Stone
+6th:Forbiddance
+6th:Freezing Sphere
+6th:Globe of Invulnerability
+6th:Guards and Wards
+6th:Harm
+6th:Heal
+6th:Heroes' Feast
+6th:Investiture of Flame
+6th:Investiture of Ice
+6th:Investiture of Stone
+6th:Investiture of Wind
+6th:Magic Jar
+6th:Mass Suggestion
+6th:Mental Prison
+6th:Move Earth
+6th:Otiluke's Freezing Sphere
+6th:Otto's Irresistible Dance
+6th:Planar Ally
+6th:Primordial Ward
+6th:Programmed Illusion
+6th:Scatter
+6th:Soul Cage
+6th:Sunbeam
+6th:Tenser's Transformation
+6th:Transport via Plants
+6th:True Seeing
+6th:Wall of Ice
+6th:Wall of Thorns
+6th:Wind Walk
+6th:Word of Recall
+7th:Conjure Celestial
+7th:Crown of Stars
+7th:Delayed Blast Fireball
+7th:Divine Word
+7th:Etherealness
+7th:Finger of Death
+7th:Fire Storm
+7th:Forcecage
+7th:Mirage Arcane
+7th:Mordenkainen's Magnificent Mansion
+7th:Mordenkainen's Sword
+7th:Plane Shift
+7th:Power Word Pain
+7th:Prismatic Spray
+7th:Project Image
+7th:Regenerate
+7th:Resurrection
+7th:Reverse Gravity
+7th:Sequester
+7th:Simulacrum
+7th:Symbol
+7th:Teleport
+7th:Temple of the Gods
+7th:Whirlwind
+8th:Abi-Dalzim's Horrid Wilting
+8th:Animal Shapes
+8th:Antimagic Field
+8th:Antipathy/Sympathy
+8th:Clone
+8th:Control Weather
+8th:Demiplane
+8th:Dominate Monster
+8th:Earthquake
+8th:Feeblemind
+8th:Glibness
+8th:Holy Aura
+8th:Illusory Dragon
+8th:Incendiary Cloud
+8th:Maddening Darkness
+8th:Maze
+8th:Mighty Fortress
+8th:Mind Blank
+8th:Power Word Stun
+8th:Sunburst
+8th:Telepathy
+8th:Tsunami
+9th:Astral Projection
+9th:Foresight
+9th:Gate
+9th:Imprisonment
+9th:Invulnerability
+9th:Mass Heal
+9th:Mass Polymorph
+9th:Meteor Swarm
+9th:Power Word Heal
+9th:Power Word Kill
+9th:Prismatic Wall
+9th:Psychic Scream
+9th:Shapechange
+9th:Storm of Vengeance
+9th:Time Stop
+9th:True Polymorph
+9th:True Resurrection
+9th:Weird
+9th:Wish

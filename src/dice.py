@@ -24,7 +24,7 @@ def roll_from_string(string):
     return None
 
 
-class Die(object):
+class Die():
     def __init__(self, sides, count=1, keep=None):
         if keep and keep > count:
             raise Exception('keep must not be greater than count')
@@ -57,10 +57,12 @@ class Die(object):
         return DieRoll(self, multiplier=multiplier)
 
 
-class Dice(object):
+class Dice():
     def __init__(self, dice=None, modifier=None):
         if dice is None:
             dice = []
+        if modifier and not isinstance(modifier, Modifier):
+            raise TypeError
         self.dice = dice
         self.modifier = modifier
 
@@ -89,6 +91,8 @@ class Dice(object):
     def roll(self, modifier=None, multiplier=None):
         mod = None
         if modifier is not None:
+            if not isinstance(modifier, Modifier):
+                raise TypeError
             mod = modifier
             mod += self.modifier if self.modifier is not None else Modifier(0)
         elif self.modifier is not None:
@@ -98,7 +102,7 @@ class Dice(object):
         return DiceRoll(self, modifier=mod, multiplier=multiplier)
 
 
-class Modifier(object):
+class Modifier():
     def __init__(self, s):
         if type(s) is str:
             self.value = int(s.replace('–', '-'))
@@ -118,7 +122,7 @@ class Modifier(object):
         return '{}{}{}'.format(prefix, ' ' if space else '', abs(self.value))
 
 
-class Roll(object):
+class Roll():
     def __init__(self):
         self._modifier = None
         self.multiplier = None

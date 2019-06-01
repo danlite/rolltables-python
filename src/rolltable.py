@@ -2,8 +2,11 @@ import os
 import sys
 import math
 import random
+import colorama
 from prettytable import PrettyTable
 from glob import glob
+from termcolor import colored
+import config
 
 # sys.path.append(os.path.dirname(__file__))
 
@@ -11,6 +14,7 @@ from dice import Modifier
 from roll_table import get_table, load_table
 
 MAX_LEVEL = 10
+colorama.init()
 
 
 def a_an(next_word):
@@ -21,7 +25,7 @@ def show_roll(d):
     print(d.description(), d.roll())
 
 
-class TableRollDisplayElement(object):
+class TableRollDisplayElement():
     def __init__(self, values=[], header=[], level=0):
         self.values = values
         self.header = header
@@ -46,8 +50,12 @@ def gather_table_roll_displays(t,
         while True:
             row = t.roll(modifier)
             number = row[0].number
+            valid = True
 
-            valid = not (ignore and number == ignore)
+            if type(ignore) == int:
+                valid = number != ignore
+            elif type(ignore) == list:
+                valid = number not in ignore
 
             if valid and unique_rolls is not None:
                 valid = number not in unique_rolls
@@ -60,7 +68,6 @@ def gather_table_roll_displays(t,
 
     if elements is None:
         elements = []
-        level = 0
 
     elements.append(TableRollDisplayElement([roll, text],
                                             [str(t.dice), t.title],
@@ -70,6 +77,8 @@ def gather_table_roll_displays(t,
         for ref in references:
             unique = ref.opts.get('unique', False)
             unique_rolls = set() if unique else None
+            if config.DEBUG:
+                print(ref.count)
             for _ in range(ref.count):
                 gather_table_roll_displays(ref.identifier,
                                            ref_opts=ref.opts,
@@ -80,12 +89,12 @@ def gather_table_roll_displays(t,
     return (elements, roll, result_modifier)
 
 
-def print_table_roll(t, modifier=None, row=None):
+def print_table_roll(t, modifier=None, row=None, starting_level=0):
     (
         elements,
         roll,
         result_modifier
-    ) = gather_table_roll_displays(t, modifier=modifier, row=row)
+    ) = gather_table_roll_displays(t, modifier=modifier, row=row, level=starting_level)
     grouped_elements = []
 
     current_level = -1
@@ -115,7 +124,7 @@ def print_table_roll(t, modifier=None, row=None):
 
     add_current()
 
-    current_level = 0
+    current_level = starting_level
     for el in grouped_elements:
         header, values, level = el
         pt = PrettyTable(header)
@@ -141,6 +150,8 @@ for f in glob(os.path.join(dirname, '../tables/**'), recursive=True):
     if os.path.isfile(f):
         load_table(f)
 
+# config.DEBUG = True
+
 # print(get_table('dmg/dungeons/location').description())
 # print(get_table('dmg/dungeons/exotic-location').description())
 
@@ -153,6 +164,19 @@ for f in glob(os.path.join(dirname, '../tables/**'), recursive=True):
 # range = RollRange(10, 12)
 # print(die.description(), roll)
 # print(range.description(), range.matches(roll))
+
+
+def ask(prompt):
+    print(prompt)
+    return input('>> ')
+
+
+def ask_int(prompt):
+    r = ask(prompt)
+    try:
+        return int(r)
+    except (ValueError, TypeError):
+        return None
 
 
 def header(header):
@@ -187,11 +211,114 @@ def make_dungeon():
 
 @header('This Is Your Life')
 def make_life():
-    print_table_roll('xgte/life/siblings', modifier=None)
-    print_table_roll('xgte/life/family')
-    r, m = print_table_roll('xgte/life/family-lifestyle')
+    races = {
+        'he': 'Half-elf',
+        'ho': 'Half-orc',
+        't': 'Tiefling',
+        'd': 'Dwarf',
+        'e': 'Elf',
+    }
+    race = ask(colored('What is your race?\n', 'magenta') +
+               '\n'.join(['{}: {}'.format(k, v) for k, v in races.items()]))
+
+    race = None if race not in races else race
+    sibling_modifier = Modifier(-2) if race in ('e', 'd') else None
+
+    if race:
+        print(colored('Your race is: {}'.format(races[race]), 'green'))
+
+    if race == 'ho':
+        print_table_roll('xgte/life/origins/half-orc-parents')
+    if race == 'he':
+        print_table_roll('xgte/life/origins/half-elf-parents')
+    if race == 't':
+        print_table_roll('xgte/life/origins/tiefling-parents')
+
+    print_table_roll('xgte/life/origins/birthplace')
+    r, m = print_table_roll('xgte/life/origins/siblings',
+                            modifier=sibling_modifier)
+    number_of_siblings = m
+    for i in range(number_of_siblings):
+        print(colored('Sibling {}'.format(i + 1), 'yellow'))
+        print_table_roll('xgte/life/origins/birth-order', starting_level=1)
+        print_table_roll('xgte/life/supplemental/occupation', starting_level=1)
+        print_table_roll('xgte/life/supplemental/alignment', starting_level=1)
+        print_table_roll('xgte/life/supplemental/status', starting_level=1)
+        print_table_roll('xgte/life/supplemental/relationship',
+                         starting_level=1)
+
+    print_table_roll('xgte/life/origins/family')
+    r, m = print_table_roll('xgte/life/origins/family-lifestyle')
     lifestyle_modifier = Modifier(m)
-    print_table_roll('xgte/life/childhood-home', modifier=lifestyle_modifier)
+    print_table_roll('xgte/life/origins/childhood-home',
+                     modifier=lifestyle_modifier)
+
+    backgrounds = [
+        ('acolyte', 'Acolyte'),
+        ('charlatan', 'Charlatan'),
+        ('criminal', 'Criminal'),
+        ('entertainer', 'Entertainer'),
+        ('folk-hero', 'Folk hero'),
+        ('guild-artisan', 'Guild artisan'),
+        ('hermit', 'Hermit'),
+        ('noble', 'Noble'),
+        ('outlander', 'Outlander'),
+        ('sage', 'Sage'),
+        ('sailor', 'Sailor'),
+        ('soldier', 'Soldier'),
+        ('urchin', 'Urchin'),
+    ]
+    bg_choice = ask_int(colored('What is your background?\n', 'magenta') +
+                        '\n'.join(['{}: {}'.format(i, b[1])
+                                   for i, b in enumerate(backgrounds)]
+                                  )
+                        )
+    if isinstance(bg_choice, int) and bg_choice in range(len(backgrounds)):
+        background = backgrounds[bg_choice]
+    else:
+        background = None
+
+    if background:
+        print(colored(
+            'Your background is: {}'.format(background[1]),
+            'green'
+        ))
+
+        print_table_roll('xgte/life/decisions/background/' + background[0])
+
+    classes = [
+        ('barbarian', 'Barbarian'),
+        ('bard', 'Bard'),
+        ('cleric', 'Cleric'),
+        ('druid', 'Druid'),
+        ('fighter', 'Fighter'),
+        ('monk', 'Monk'),
+        ('paladin', 'Paladin'),
+        ('ranger', 'Ranger'),
+        ('rogue', 'Rogue'),
+        ('sorcerer', 'Sorcerer'),
+        ('warlock', 'Warlock'),
+        ('wizard', 'Wizard'),
+    ]
+    class_choice = ask_int(colored('What is your class?\n', 'magenta') +
+                           '\n'.join(['{}: {}'.format(i, b[1])
+                                      for i, b in enumerate(classes)]
+                                     )
+                           )
+    if isinstance(class_choice, int) and class_choice in range(len(classes)):
+        class_ = classes[class_choice]
+    else:
+        class_ = None
+
+    if class_:
+        print(colored(
+            'Your class is: {}'.format(class_[1]),
+            'green'
+        ))
+
+        print_table_roll('xgte/life/decisions/class/' + class_[0])
+
+    print_table_roll('xgte/life/events/age')
 
 
 @header('Treasure Hoards')
@@ -200,6 +327,30 @@ def treasure():
     # print(table.evaluate_text())
     print_table_roll(table)
     # print_table_roll('dmg/treasure/magic-item-g')
+
+
+@header('White Plume Mountain')
+def mountain_loot():
+    table_1 = get_table('dmg/treasure/hoard-1-loot')
+    table_2 = get_table('dmg/treasure/hoard-2-loot')
+
+    print_table_roll(table_1)
+    print_table_roll(table_1)
+    print_table_roll(table_1)
+    print_table_roll(table_1)
+    print_table_roll(table_1)
+    print_table_roll(table_1)
+    print_table_roll(table_1)
+
+    print_table_roll(table_2)
+    print_table_roll(table_2)
+    print_table_roll(table_2)
+    print_table_roll(table_2)
+    print_table_roll(table_2)
+    print_table_roll(table_2)
+    print_table_roll(table_2)
+    print_table_roll(table_2)
+    print_table_roll(table_2)
 
 
 @header('Spells')
@@ -264,16 +415,42 @@ def une():
     [print_table_roll('dmg/npcs/{}'.format(table)) for table in tables]
 
 
+@header('Villain')
+def villain():
+    for t in ('objective', 'method', 'weakness'):
+        table = get_table('dmg/villains/{}'.format(t))
+        print_table_roll(table)
+
+
+@header('Settlement')
+def settlement():
+    for t in ('race-relations', 'ruler-status', 'notable-traits', 'known-for', 'current-calamity'):
+        table = get_table('dmg/settlements/{}'.format(t))
+        print_table_roll(table)
+
+@header('NPC')
+def npc():
+    ideal = 'ideal-' + random.choice(('chaotic', 'evil', 'good', 'lawful', 'neutral', 'other'))
+    for t in ('appearance', 'ability-high', 'talent', 'mannerism', 'interaction', ideal, 'bond', 'flaw-secret'):
+        table = get_table('dmg/npcs/{}'.format(t))
+        print_table_roll(table)
+
+
+
 if __name__ == '__main__':
     args = list(sys.argv)
     args.pop(0)
 
     # make_dungeon()
-    # make_life()
+    make_life()
     # treasure()
     # spells()
     # random_dungeon()
     # une()
+    # mountain_loot()
+    # villain()
+    # settlement()
+    # npc()
 
     for table_name in args:
         print_table_roll(table_name)

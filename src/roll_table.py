@@ -1,5 +1,6 @@
 import re
 import codecs
+import config
 from prettytable import PrettyTable
 from dice import Dice, Die
 from roll_range import RollRange
@@ -9,11 +10,14 @@ from evaluate_numeric import evaluate_numeric
 _tables = {}
 PART_SEPARATOR = '|'
 
+
 class MalformedRowError(BaseException):
     pass
 
 
 def load_table(file):
+    if config.DEBUG:
+        print('Loading {}'.format(file))
     identifier, table = RollTable.from_file(file)
     _tables[identifier] = table
 
@@ -44,7 +48,7 @@ def evaluate_text(self):
     return (text, mapping)
 
 
-class RollTable(object):
+class RollTable():
     def __init__(self, dice, rows, title=None, text=None):
         self.dice = dice
         self.rows = rows
@@ -110,13 +114,17 @@ class RollTable(object):
                             PART_SEPARATOR,
                             line.strip())))
                 line_number += 1
+
+        if len(rows) == 0:
+            raise Exception('Empty file: {}'.format('file'))
+
         if dice is None:
             dice = Dice([Die(len(rows))])
         table = cls(dice, rows, title, text)
         return (identifier, table)
 
 
-class RollTableRow(object):
+class RollTableRow():
     def __init__(self, range, text, table_references=None, modifier=None):
         self.range = range
         self.text = text
@@ -127,6 +135,7 @@ class RollTableRow(object):
 
     def evaluate(self):
         text, mapping = evaluate_text(self)
+        text = ".\n".join(text.split(". "))
         modifier = evaluate_numeric(self.modifier, mapping) \
             if self.modifier is not None else None
         references = [r.with_mapping(mapping) for r in self.table_references] \

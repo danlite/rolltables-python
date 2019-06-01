@@ -1,9 +1,10 @@
 import re
+import config
 from json import loads
 from evaluate_numeric import evaluate_numeric
 
 
-class RollTableReference(object):
+class RollTableReference():
     def __init__(self, identifier, count=1, opts={}):
         self.identifier = identifier
         self.count = count
@@ -17,8 +18,18 @@ class RollTableReference(object):
             count = 1
             opts = {}
 
+            if config.DEBUG:
+                print('string: ' + string)
+
             if len(parts) > 1:
-                match = re.search(r"(\d+)?(\{.*\})?", parts[1])
+                # print(parts[1])
+                if config.DEBUG:
+                    print('parts:')
+                    print(parts)
+                    print('end parts')
+
+                match = re.search(r"(\d+|@[a-z0-9-]+)?(\{.*\})?", parts[1])
+                # print(match)
                 if match and match.group(1):
                     count = match.group(1)
                 if match and match.group(2):
@@ -29,6 +40,9 @@ class RollTableReference(object):
             return None
 
     def with_mapping(self, mapping):
+        if config.DEBUG:
+            print(self.identifier)
+            print('count: ' + str(self.count))
         return RollTableReference(self.identifier,
                                   evaluate_numeric(self.count, mapping),
                                   self.opts)
